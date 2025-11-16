@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./components/Header";
-import ItemList from "./components/ItemList";
+//import Header from "./components/Header";
+//import ItemList from "./components/ItemList";
 
 import logo from './logo.svg';
 import './App.css';
