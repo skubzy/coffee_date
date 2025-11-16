@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   return (
     <div className="Coffee Dates">
-      <header className="App-header">Coffee Dates
+      <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
