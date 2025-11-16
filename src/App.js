@@ -1,10 +1,14 @@
+import React from "react";
+import Header from "./components/Header";
+import ItemList from "./components/ItemList";
+
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="Coffee Dates">
-      <header className="App-header">
+      <header className="App-header">Coffee Dates
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
