@@ -27,6 +27,20 @@
   100% {
     transform: translate(40px, 0);
   }
+  /* start: right & low */
+   0% {
+    transform: translate(0, 40px);
+  }
+
+  /* mid: center & high (top of the parabola) */
+  50% {
+    transform: translate(-30px, 0);
+  }
+
+  /* end: left & low */
+  0% {
+    transform: translate(0, -40px);
+  }
 }
 
 
