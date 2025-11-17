@@ -102,13 +102,12 @@
 .location-btn {
   display: inline-block;
   padding: 14px 30px;
-  padding-left: 40px;
   background: #6b4423;
+  padding-right: 70px;
   color: white;
   border: none;
   border-radius: 25px;
   font-size: 16px;
-  size: 20px;
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 20px;
@@ -207,11 +206,12 @@
 
 .people-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  padding: 10px;
 }
 
 /* Responsive */

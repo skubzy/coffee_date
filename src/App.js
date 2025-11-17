@@ -1,11 +1,16 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import CoffeeShopCard from "./components/CoffeeShopCard";
 import PersonCard from "./components/PersonCard";
+import CafesPage from "./pages/CafesPage";
+import PeoplePage from "./pages/PeoplePage";
+import ChatPage from "./pages/ChatPage";
 import './App.css';
 
-function App() {
+function HomePage() {
   const [location, setLocation] = useState("");
+  const navigate = useNavigate();
 
   const handleLocationChange = (e) => {
     setLocation(e.target.value);
@@ -123,7 +128,19 @@ function App() {
       drink: "Iced Mocha",
       location: "The Roastery",
       note: "Ideal coffee date: Chatting about: lol"
-    } 
+    },  {
+      id: 1,
+      name: "Emma",
+      drink: "Iced Mocha",
+      location: "The Roastery",
+      note: "Ideal coffee date: Chatting about: lol"
+    }, {
+      id: 1,
+      name: "Emma",
+      drink: "Iced Mocha",
+      location: "The Roastery",
+      note: "Ideal coffee date: Chatting about: lol"
+    }
   ];
 
   return (
@@ -143,7 +160,7 @@ function App() {
           <form onSubmit={handleLocationSubmit} className="search-form">
             <input
               type="text"
-              placeholder="Enter a city or area"
+              placeholder="        Enter a city or area"
               value={location}
               onChange={handleLocationChange}
               className="search-input"
@@ -155,7 +172,9 @@ function App() {
 
       {/* Coffee Shops Section */}
       <section className="coffee-shops-section">
-        <h2>Nearby Coffee Shops</h2>
+        <div style={{  justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+          <h2>Nearby Coffee Shops</h2>
+        </div>
         <div className="coffee-shops-grid">
           {coffeeShops.map((shop) => (
             <CoffeeShopCard
@@ -168,26 +187,48 @@ function App() {
               onSuggest={() => console.log(`Suggested: ${shop.name}`)}
             />
           ))}
+        
         </div>
+         <div style={{ justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' , marginTop: '20px' }}>
+         <button onClick={() => navigate('/cafes')} style={{ background: '#6b4423', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '8px', cursor: 'pointer', fontSize: '14px' }}>See All</button>
+        </div>
+
       </section>
 
       {/* People Section */}
       <section className="people-section">
-        <h2>People who want coffee near you</h2>
+        <div style={{ justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+          <h2>People who want coffee near you</h2>
+          <button onClick={() => navigate('/people')} style={{ background: '#6b4423', color: 'white', border: 'none', padding: '10px 20px', borderRadius: '8px', cursor: 'pointer', fontSize: '14px' }}>See All</button>
+        </div>
         <div className="people-grid">
           {people.map((person) => (
             <PersonCard
               key={person.id}
+              id={person.id}
               name={person.name}
               drink={person.drink}
               location={person.location}
               note={person.note}
-              onInvite={() => console.log(`Invited: ${person.name}`)}
+              onInvite={() => navigate(`/chat/${person.id}`)}
             />
           ))}
         </div>
       </section>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/cafes" element={<CafesPage />} />
+        <Route path="/people" element={<PeoplePage />} />
+        <Route path="/chat/:personId" element={<ChatPage />} />
+      </Routes>
+    </Router>
   );
 }
 
