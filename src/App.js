@@ -2,14 +2,14 @@ import React from "react";
 //import Header from "./components/Header";
 //import ItemList from "./components/ItemList";
 
-import logo from './logo.svg';
+import logo from './logo2.png';
 import './App.css';
 
 function App() {
   return (
     <div className="Coffee Dates">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo1" />
+        <img src={logo} className="App-logo" alt="logo" />
         <p>
            <code>Coffee Dates</code> 
         </p>
