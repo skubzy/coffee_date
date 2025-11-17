@@ -9,9 +9,22 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-bounce 2s ease-in-out infinite;
   }
 }
+@keyframes App-logo-bounce {
+  0% {
+    transform: translateX(-20px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(-20px);
+  }
+}
+
+
 
 .App-header {
   background-color: #282c34;
