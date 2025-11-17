@@ -1,27 +1,192 @@
-import React from "react";
-//import Header from "./components/Header";
-//import ItemList from "./components/ItemList";
-
-import logo from './logo2.png';
+import React, { useState } from "react";
+import Header from "./components/Header";
+import CoffeeShopCard from "./components/CoffeeShopCard";
+import PersonCard from "./components/PersonCard";
 import './App.css';
 
 function App() {
+  const [location, setLocation] = useState("");
+
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
+  };
+
+  const handleLocationSubmit = (e) => {
+    e.preventDefault();
+    if (location.trim()) {
+      console.log("Location selected:", location);
+    }
+  };
+
+  // Coffee shop data
+  const coffeeShops = [
+    {
+      id: 1,
+      name: "The Roastery",
+      rating: 4.5,
+      reviews: 230,
+      distance: "2.1 km away",
+      tags: ["Cozy", "Study spot", "Patio"]
+    },
+    {
+      id: 2,
+      name: "Brew Lab",
+      rating: 4.2,
+      reviews: 156,
+      distance: "1.2 km away",
+      tags: ["Cozy", "Study spot", "Patio"]
+    },
+    {
+      id: 3,
+      name: "Cozy Corner",
+      rating: 4.6,
+      reviews: 315,
+      distance: "315 km away",
+      tags: ["Cozy", "Romantic", "Patio"]
+    },
+    {
+      id: 4,
+      name: "Cozy Corner",
+      rating: 4.6,
+      reviews: 315,
+      distance: "315 km away",
+      tags: ["Cozy", "Romantic", "Patio"]
+    },
+     {
+      id: 3,
+      name: "Cozy Corner",
+      rating: 4.6,
+      reviews: 315,
+      distance: "315 km away",
+      tags: ["Cozy", "Romantic", "Patio"]
+    },
+     {
+      id: 3,
+      name: "Cozy Corner",
+      rating: 4.6,
+      reviews: 315,
+      distance: "315 km away",
+      tags: ["Cozy", "Romantic", "Patio"]
+    }
+    
+  ];
+
+  // People data
+  const people = [
+    {
+      id: 1,
+      name: "Emma",
+      drink: "Iced Mocha",
+      location: "The Roastery",
+      note: "Ideal coffee date: Chatting about: lol"
+    },
+    {
+      id: 2,
+      name: "Daniel",
+      drink: "Flat White",
+      location: "Cozy Corner",
+      note: "Brainstorming our latest project ideas"
+    },
+    {
+      id: 3,
+      name: "Sophia",
+      drink: "Matcha Latte",
+      location: "The Roastery",
+      note: "Laughing over bad coffee puns"
+    }, {
+      id: 1,
+      name: "Emma",
+      drink: "Iced Mocha",
+      location: "The Roastery",
+      note: "Ideal coffee date: Chatting about: lol"
+    }, {
+      id: 1,
+      name: "Emma",
+      drink: "Iced Mocha",
+      location: "The Roastery",
+      note: "Ideal coffee date: Chatting about: lol"
+    }, {
+      id: 1,
+      name: "Emma",
+      drink: "Iced Mocha",
+      location: "The Roastery",
+      note: "Ideal coffee date: Chatting about: lol"
+    }, {
+      id: 1,
+      name: "Emma",
+      drink: "Iced Mocha",
+      location: "The Roastery",
+      note: "Ideal coffee date: Chatting about: lol"
+    }, {
+      id: 1,
+      name: "Emma",
+      drink: "Iced Mocha",
+      location: "The Roastery",
+      note: "Ideal coffee date: Chatting about: lol"
+    } 
+  ];
+
   return (
     <div className="Coffee Dates">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-           <code>Coffee Dates</code> 
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Hero Section - Header + Location (Full Screen) */}
+      <div className="hero-section">
+        <div className="header-wrapper">
+          <Header/>
+        </div>
+        
+        {/* Location Search Section */}
+        <div className="location-section">
+          <h2 className="location-title">Where are we meeting?</h2>
+          
+          <button className="location-btn">Use my location</button>
+          
+          <form onSubmit={handleLocationSubmit} className="search-form">
+            <input
+              type="text"
+              placeholder="Enter a city or area"
+              value={location}
+              onChange={handleLocationChange}
+              className="search-input"
+            />
+            <button type="submit" className="search-btn">🔍</button>
+          </form>
+        </div>
+      </div>
+
+      {/* Coffee Shops Section */}
+      <section className="coffee-shops-section">
+        <h2>Nearby Coffee Shops</h2>
+        <div className="coffee-shops-grid">
+          {coffeeShops.map((shop) => (
+            <CoffeeShopCard
+              key={shop.id}
+              name={shop.name}
+              rating={shop.rating}
+              reviews={shop.reviews}
+              distance={shop.distance}
+              tags={shop.tags}
+              onSuggest={() => console.log(`Suggested: ${shop.name}`)}
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* People Section */}
+      <section className="people-section">
+        <h2>People who want coffee near you</h2>
+        <div className="people-grid">
+          {people.map((person) => (
+            <PersonCard
+              key={person.id}
+              name={person.name}
+              drink={person.drink}
+              location={person.location}
+              note={person.note}
+              onInvite={() => console.log(`Invited: ${person.name}`)}
+            />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,0 +1,40 @@
+.header-container {
+  background: linear-gradient(135deg, #faf8f3 0%, #fff5f0 100%);
+  padding: 60px 20px 40px;
+  text-align: center;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.header-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header-logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: 20px;
+}
+
+.header-title {
+  font-size: 52px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #5c3d2e;
+  margin: 15px 0;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.header-subtitle {
+  font-size: 16px;
+  color: #8b6f47;
+  margin: 15px 0 0 0;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+}
