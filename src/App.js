@@ -6,6 +6,7 @@ import PersonCard from "./components/PersonCard";
 import CafesPage from "./pages/CafesPage";
 import PeoplePage from "./pages/PeoplePage";
 import ChatPage from "./pages/ChatPage";
+import AuthPage from "./pages/AuthPage";
 import './App.css';
 
 function HomePage() {
@@ -227,6 +228,7 @@ function App() {
         <Route path="/cafes" element={<CafesPage />} />
         <Route path="/people" element={<PeoplePage />} />
         <Route path="/chat/:personId" element={<ChatPage />} />
+        <Route path="/auth" element={<AuthPage />} />
       </Routes>
     </Router>
   );
